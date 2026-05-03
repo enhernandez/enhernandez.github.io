@@ -241,8 +241,7 @@ const PUBS = [
    ab:"This chapter analyzes the eighth Spanish European Parliament Election (EPE), which marked the end of an electoral cycle that began one month before (on April 26th, 2019) with the General Election in which the incumbent Socialist Party (PSOE) won a plurality of seats. For the first time since the first Spanish European Parliament election in 1987, the EPE was held on the same date as regional elections (in twelve out of seventeen regions). At the time of the EPE, a parliamentary agreement to elect a new national government had not been reached, since most parties were eager to postpone this decision until after the election."},
   {y:2019,t:"chapter",ven:"In: Gómez, Cabeza & Alonso (Eds.), En busca del poder territorial. CIS",
    title:"La Competición Política en las Islas Baleares, 1983-2015", au:"P. Riera, E. Hernández",
-   url:"https://libreria.cis.es/libros/en-busca-del-poder-territorial/9788474767933/",
-   ab:"[Abstract placeholder.]"},
+   url:"https://libreria.cis.es/libros/en-busca-del-poder-territorial/9788474767933/"},
   {y:2016,t:"chapter",ven:"In: Ferrín & Kriesi (Eds.), How Europeans View and Evaluate Democracy. Oxford University Press",
    title:"Europeans' Views of Democracy: the Core Elements of Democracy",
    au:"E. Hernández", doi:"10.1093/acprof:oso/9780198766902.003.0003",
@@ -274,16 +273,18 @@ function render(filter){
     }
     const linkHtml = p.url ? `<a href="${p.url}" target="_blank">link ↗</a>` :
                      (p.doi ? `<a href="https://doi.org/${p.doi}" target="_blank">doi ↗</a>` : '');
+    const absBtn = p.ab ? `<button data-i="${i}">abstract</button>` : '';
+    const absDiv = p.ab ? `<div class="pub-abs" data-x="${i}">${p.ab}</div>` : '';
     const div = document.createElement('div'); div.className = 'pub';
     div.innerHTML = `
       <div class="pub-title">${p.title}</div>
       <div class="pub-authors">${p.au}</div>
       <div class="pub-venue">${p.ven}</div>
       <div class="pub-actions">
-        <button data-i="${i}">abstract</button>
+        ${absBtn}
         ${linkHtml}
       </div>
-      <div class="pub-abs" data-x="${i}">${p.ab}</div>`;
+      ${absDiv}`;
     wrap.appendChild(div);
   });
   wrap.querySelectorAll('button[data-i]').forEach(b=>{
