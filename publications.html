@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publications · Enrique Hernández</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fafaf9;--fg:#1c1917;--muted:#78716c;--accent:#0c4a6e;
+      --line:#e7e5e4;--card:#fff;--soft:#f5f5f4}
+    @media (prefers-color-scheme: dark){:root{--bg:#0a0a0a;--fg:#f5f5f4;--muted:#a8a29e;
+      --accent:#7dd3fc;--line:#27272a;--card:#171717;--soft:#1c1917}}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+      background:var(--bg);color:var(--fg);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+    h1{font-family:'Roboto Slab',Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-.01em;margin:.4em 0 .2em}
+    h2{font-family:'Roboto Slab',Georgia,serif;font-size:1.05rem;text-transform:uppercase;
+      letter-spacing:.16em;font-weight:700;color:var(--muted);margin:2.5rem 0 1rem;
+      padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+    h1.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .layout{display:grid;grid-template-columns:300px 1fr;max-width:1100px;margin:0 auto;min-height:100vh}
+    aside{position:sticky;top:0;height:100vh;padding:3rem 2rem;border-right:1px solid var(--line);overflow-y:auto}
+    aside .photo{width:160px;height:160px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
+    aside .name{font-family:'Roboto Slab',Georgia,serif;font-size:1.3rem;font-weight:700;margin:1.2rem 0 .2rem;letter-spacing:-.01em}
+    aside .affil{color:var(--muted);font-size:.88rem;margin-bottom:1.4rem;line-height:1.55}
+    aside .affil a{color:var(--muted)}
+    aside nav{margin-top:.5rem;border-top:1px solid var(--line);padding-top:1.2rem}
+    aside nav a{display:block;padding:.4rem 0;font-size:.95rem;color:var(--fg);font-weight:500}
+    aside nav a:hover{color:var(--accent);text-decoration:none}
+    aside nav a.active{color:var(--accent)}
+    aside .icons{display:flex;gap:1.1rem;margin-top:1.6rem;flex-wrap:wrap;align-items:center;
+      padding-top:1.2rem;border-top:1px solid var(--line)}
+    aside .icons a{color:var(--muted);line-height:1;display:inline-flex;transition:color .15s}
+    aside .icons a:hover{color:var(--accent)}
+    aside .icons svg{width:22px;height:22px;display:block;fill:currentColor}
+    main{padding:4rem 3.5rem 4rem;max-width:820px}
+    .filters{display:flex;gap:.5rem;margin:1.5rem 0 2rem;flex-wrap:wrap}
+    .filters button{font-family:inherit;background:none;border:1px solid var(--line);
+      color:var(--muted);padding:.35rem .9rem;border-radius:999px;font-size:.84rem;cursor:pointer}
+    .filters button.active{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+    .year{font-family:'Roboto Slab',Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--muted);
+      margin:2rem 0 .5rem;letter-spacing:-.01em}
+    .pub{padding:1rem 0;border-bottom:1px solid var(--line)}
+    .pub-title{font-family:'Roboto Slab',Georgia,serif;font-size:1.05rem;font-weight:500;line-height:1.4}
+    .pub-authors{font-size:.92rem;margin-top:.25rem}
+    .pub-venue{font-size:.88rem;color:var(--muted);font-style:italic;margin-top:.15rem}
+    .pub-actions{margin-top:.45rem;font-size:.82rem}
+    .pub-actions button,.pub-actions a{background:none;border:none;color:var(--accent);
+      font-family:inherit;font-size:.82rem;cursor:pointer;padding:0;margin-right:1.1rem;text-decoration:none;font-weight:500}
+    .pub-actions button:hover,.pub-actions a:hover{text-decoration:underline}
+    .pub-abs{display:none;margin-top:.7rem;padding:.85rem 1.05rem;background:var(--soft);
+      border-radius:4px;font-size:.92rem;line-height:1.65}
+    .pub-abs.open{display:block}
+    @media(max-width:820px){.layout{grid-template-columns:1fr}
+      aside{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);text-align:center;padding:2rem}
+      aside nav{display:flex;justify-content:center;gap:1.2rem;border-top:none;flex-wrap:wrap}
+      aside nav a{padding:0}
+      aside .icons{justify-content:center}
+      main{padding:2rem 1.5rem}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <img class="photo" src="picture.jpeg" alt="Enrique Hernández">
+    <div class="name">Enrique Hernández</div>
+    <div class="affil">Department of Political Science<br><a href="https://www.uab.cat/" target="_blank">Autonomous University of Barcelona</a></div>
+    <nav>
+      <a href="index.html">About</a>
+      <a href="publications.html" class="active">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="outreach.html">Outreach</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="cv.pdf" target="_blank">CV</a>
+    </nav>
+    <div class="icons">
+      <a href="mailto:enrique.hernandez@uab.cat" title="Email" aria-label="Email">
+        <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+      </a>
+      <a href="https://scholar.google.com/citations?user=Eh1IUcQAAAAJ" target="_blank" title="Google Scholar" aria-label="Google Scholar">
+        <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256 411.12L0 202.667 256 0l256 202.667-256 208.453zM256 273.205l139.34-90.518L256 67.072 116.66 182.687 256 273.205zM128 305.92V416l128 96 128-96V305.92L256 384l-128-78.08z"/></svg>
+      </a>
+      <a href="https://bsky.app/profile/ehernandez.bsky.social" target="_blank" title="Bluesky" aria-label="Bluesky">
+        <svg viewBox="0 0 600 530" aria-hidden="true"><path d="M135.7 44.5C202.5 94.6 274.4 196.2 300 250.7c25.6-54.5 97.5-156.1 164.3-206.2 48.2-36.2 126.3-64.2 126.3 25 0 17.8-10.2 149.5-16.2 170.9-20.8 74.4-96.7 93.4-164.2 81.9 118 20.1 148 86.6 83.2 153.1-123 126.3-176.8-31.7-190.6-72.2-2.5-7.4-3.7-10.9-3.8-7.9-.1-3-1.3.5-3.8 7.9-13.8 40.5-67.6 198.5-190.6 72.2C39.8 415 69.8 348.5 187.8 328.4 120.3 339.9 44.4 320.9 23.6 246.5 17.6 225.1 7.4 93.4 7.4 75.6c0-89.2 78.1-61.2 126.3-25z"/></svg>
+      </a>
+      <a href="https://github.com/enhernandez" target="_blank" title="GitHub" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <h1>Publications</h1>
+
+    <div class="filters" id="filters">
+      <button class="active" data-f="all">All</button>
+      <button data-f="article">Articles</button>
+      <button data-f="chapter">Book chapters</button>
+      <button data-f="dataset">Datasets</button>
+    </div>
+
+    <div id="pubs"></div>
+  </main>
+</div>
+
+<script>
+const PUBS = [
+  {y:2026,t:"article",ven:"Comparative Political Studies",
+   title:"Winners' Restraint or Affective Majoritarianism? Elections, Polarization and Political Support",
+   au:"D. Tomic, S. Ferrer, E. Hernández, E. Prada", doi:"10.1177/00104140251414013",
+   ab:"The literature analyzing the impact of winning and losing elections on individuals' political support has predominantly focused on the gap in satisfaction with democracy. We analyze if these winner-loser dynamics extend to citizens' support for principles related to norms of democratic restraint and consent, and how partisan animus might reinforce these dynamics. Based on CSES data for 24 elections, we find that winners and losers do not differ in their support for unrestrained majority rule vis-a-vis the protection of the rights of minorities, or in their likelihood of favoring a strong leader willing to bypass legal constraints — even among highly affectively polarized individuals."},
+  {y:2025,t:"article",ven:"European Journal of Political Research, 64(4), 2018-2038",
+   title:"The Value of Liberal Democracy: Assessing Citizens' Commitment to Democratic Principles",
+   au:"S. Ferrer, E. Hernández, E. Prada, D. Tomic",
+   url:"https://onlinelibrary.wiley.com/doi/full/10.1111/1475-6765.70021",
+   ab:"Recent studies suggest that citizens are unlikely to trade off free elections for other desirable outcomes. However, today democracy is not often undermined by abolishing elections — but by undermining other liberal-democratic principles. Through a seven country conjoint experiment, we find that while citizens do not relinquish free elections easily, they are more open to forgo liberal principles undermined in backsliding processes, especially when these principles are eroded gradually, one at a time."},
+  {y:2025,t:"article",ven:"Electoral Studies, 95",
+   title:"Rural Representation in Europe: The Presence of Place in National Parliaments",
+   au:"G. Rico, R. García del Horno, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2025,t:"article",ven:"Electoral Studies, 95, 102912",
+   title:"Measuring Rural and Urban Consciousness in Europe",
+   au:"C. Claassen et al. (incl. E. Hernández)", ab:"[Abstract placeholder.]"},
+  {y:2025,t:"article",ven:"European Political Science Review, 17(1), 61-79",
+   title:"Too Crooked to be Good? Trade-offs in the Electoral Punishment of Malfeasance and Corruption",
+   au:"S. Breitenstein, E. Hernández",
+   url:"https://www.cambridge.org/core/journals/european-political-science-review/article/too-crooked-to-be-good-tradeoffs-in-the-electoral-punishment-of-malfeasance-and-corruption/240FDDE3ABE1A271F0B8353FC68E0EDE",
+   ab:"While elections are an instrument to hold politicians accountable, corrupt politicians are often re-elected. Citizens may trade off integrity for competence: voters may forgive corruption if corrupt politicians manage to deliver desirable outcomes. Using a survey experiment, we find that citizens prefer a politician who follows the law, even if this leads to a sub-optimal outcome — but voters are more likely to overlook violations of the law that benefit the community if these do not result in a personal gain for politicians."},
+  {y:2025,t:"article",ven:"Scientific Data, 12",
+   title:"The Spanish Political Attitudes Panel (12 waves)",
+   au:"R. Pannico, C. Galais, E. Hernández, G. Rico, E. Anduiza", ab:"[Abstract placeholder.]"},
+  {y:2025,t:"article",ven:"Public Management Review, 27(1), 183-217",
+   title:"\"It's a match!\": A discrete choice experiment on job attractiveness for public service jobs",
+   au:"G. Ripoll, X. Ballart, E. Hernández, W. Vandenabeele", ab:"[Abstract placeholder.]"},
+  {y:2025,t:"article",ven:"Acta Politica, 60, 663-681",
+   title:"What is political and what is not? Illustrating how the public salience of abortion in the media shapes public perceptions about its political nature",
+   au:"M. Fraile, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2024,t:"article",ven:"West European Politics, 47(7), 1447-1472",
+   title:"Do They Feel Like They Don't Matter? The Rural-Urban Divide in External Political Efficacy",
+   au:"R. García del Horno, G. Rico, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2024,t:"article",ven:"Revista Española de Ciencia Política, 65, 73-88",
+   title:"The POLAT Panel: Spanish Political Attitudes Survey",
+   au:"D. Tomic, C. Galais, E. Hernández et al.", ab:"[Abstract placeholder.]"},
+  {y:2024,t:"article",ven:"International Public Management Journal, 27(2), 284-301",
+   title:"Enhancing satisfaction with public services: The effect of recalling personal experiences",
+   au:"X. Ballart, E. Hernández, M. Esteve", ab:"[Abstract placeholder.]"},
+  {y:2023,t:"article",ven:"Research & Politics, 10(3)",
+   title:"The (Null) Effects of the Russian Invasion of Ukraine on Europeans' Attitudes Toward Democracy",
+   au:"E. Hernández, M. Ares",
+   url:"https://journals.sagepub.com/doi/10.1177/20531680231204679",
+   ab:"We analyze the short-term impact of the Russian invasion of Ukraine on Europeans' attitudes toward democracy, leveraging the coincidence of the invasion with the European Social Survey fieldwork in 10 countries. The invasion did not have any substantive impact across 12 democratic attitudes — Europeans' support for democracy was resilient in the short run, but this threat did not lead to a 'rally-round-democracy' either."},
+  {y:2023,t:"article",ven:"Public Performance & Management Review, 46(1), 225-256",
+   title:"Are highly public service motivated individuals immune to common causes of unethical behaviour?",
+   au:"G. Ripoll, E. Hernández, X. Ballart", ab:"[Abstract placeholder.]"},
+  {y:2022,t:"article",ven:"West European Politics, 45(5), 1130-1152",
+   title:"The Long-Lasting Effects of Citizenship Education Subjects",
+   au:"E. Hernández, C. Galais", ab:"[Abstract placeholder.]"},
+  {y:2021,t:"article",ven:"Political Research Exchange, 3(1), 1-15",
+   title:"The Crown: A Survey About the Spanish Monarchy",
+   au:"E. Hernández, M. Torre, A. De Moragas", ab:"[Abstract placeholder.]"},
+  {y:2021,t:"article",ven:"European Political Science Review, 13(2), 209-225",
+   title:"Preferences for Consensus and Majoritarian Democracy: Long- and Short-Term Influences",
+   au:"M. Ferrín, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2021,t:"article",ven:"Electoral Studies, 69(1), 1-9",
+   title:"Affective polarization and the salience of elections",
+   au:"E. Hernández, E. Anduiza, G. Rico", ab:"[Abstract placeholder.]"},
+  {y:2020,t:"article",ven:"Political Analysis, 28(2), 186-206",
+   title:"Unexpected Event during Survey Design: Promise and Pitfalls for Causal Inference",
+   au:"J. Muñoz, A. Falcó-Gimeno, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2020,t:"article",ven:"European Union Politics, 21(4), 569-589",
+   title:"The impact of EU institutional advertising on public support for European integration",
+   au:"E. Hernández, R. Pannico", ab:"[Abstract placeholder.]"},
+  {y:2019,t:"article",ven:"European Political Science Review, 11(4), 485-502",
+   title:"Democracy belief systems in Europe: Cognitive availability and attitudinal constraint",
+   au:"E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2018,t:"article",ven:"European Union Politics, 19(3), 458-480",
+   title:"Democratic discontent and support for mainstream and challenger parties: Democratic protest voting",
+   au:"E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2018,t:"article",ven:"Comparative European Politics, 16(3), 351-384",
+   title:"Evaluations of the quality of the representative channel and unequal participation",
+   au:"E. Hernández, M. Ares", ab:"[Abstract placeholder.]"},
+  {y:2017,t:"article",ven:"Research & Politics, 4(2)",
+   title:"The corrosive effect of corruption on trust in politicians: Evidence from a natural experiment",
+   au:"M. Ares, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2016,t:"article",ven:"Electoral Studies, 44, 515-524",
+   title:"Turning your back on the EU. The role of Eurosceptic parties in the 2014 European Parliament elections",
+   au:"E. Hernández, H. Kriesi", ab:"[Abstract placeholder.]"},
+  {y:2016,t:"article",ven:"European Journal of Political Research, 55(2), 203-224",
+   title:"The Electoral Consequences of the Financial and Economic Crisis in Europe",
+   au:"E. Hernández, H. Kriesi",
+   url:"https://ejpr.onlinelibrary.wiley.com/doi/abs/10.1111/1475-6765.12122",
+   ab:"We analyze the electoral consequences of the Great Recession by combining economic voting theories with the literature on party system change. Drawing on data from 30 European democracies, economic strain was associated with sizable losses for incumbent parties and the destabilisation of Western European party systems. Populist radical-right, radical-left and non-mainstream parties benefited the most."},
+  {y:2025,t:"chapter",ven:"In: Ferrín & Kriesi (Eds.), How Europeans View and Evaluate Democracy Revisited: Ten Years Later. Oxford University Press",
+   title:"Stability and change in Europeans' views of democracy",
+   au:"E. Hernández",
+   url:"https://academic.oup.com/book/59840/chapter-abstract/511341654",
+   ab:"Using data from the European Social Survey (ESS), this chapter examines the stability and change in Europeans' views of democracy between 2012 and 2021. The results show continued high support for core democratic elements such as free elections and the rule of law. However, there is some decline in the importance attributed to social democratic elements and direct democracy. Europeans remain committed to democracy."},
+  {y:2025,t:"chapter",ven:"In: Ferrín & Kriesi (Eds.), How Europeans View and Evaluate Democracy Revisited: Ten Years Later. Oxford University Press",
+   title:"Democratic views and voting behavior",
+   au:"M. Ferrín, E. Hernández, P. Riera", ab:"[Abstract placeholder.]"},
+  {y:2025,t:"chapter",ven:"In: Torcal & Harteveld (Eds.), Handbook of Affective Polarization. Edward Elgar",
+   title:"Party competition and affective polarization",
+   au:"E. Anduiza, D. Balinhas, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2020,t:"chapter",ven:"In: Muro & Lago (Eds.), Oxford Handbook of Spanish Politics. Oxford University Press",
+   title:"Determinants of Voting Behaviour", au:"M. Fraile, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2019,t:"chapter",ven:"In: Tumber & Waisbord (Eds.), The Routledge Companion to Media and Scandal. Routledge",
+   title:"The Political Consequences of Corruption Scandals: Main Findings and Challenges",
+   au:"M. Ares, S. Breitenstein, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2019,t:"chapter",ven:"In: De Sio, Franklin & Russo (Eds.), The European Parliament Elections of 2019. Luiss University Press",
+   title:"Spain: The endless election sequence", au:"M. Fraile, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2019,t:"chapter",ven:"In: Gómez, Cabeza & Alonso (Eds.), En busca del poder territorial. CIS",
+   title:"La Competición Política en las Islas Baleares, 1983-2015", au:"P. Riera, E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2016,t:"chapter",ven:"In: Ferrín & Kriesi (Eds.), How Europeans View and Evaluate Democracy. Oxford University Press",
+   title:"Europeans' Views of Democracy: the Core Elements of Democracy",
+   au:"E. Hernández", ab:"[Abstract placeholder.]"},
+  {y:2024,t:"dataset",ven:"CORA Repositori de Dades de Recerca",
+   title:"POLAT Panel. Spanish Political Attitudes Dataset (12 waves)",
+   au:"R. Pannico, D. Tomic et al.", url:"https://doi.org/10.34810/data1486",
+   ab:"12-wave panel survey on Spanish political attitudes."},
+  {y:2021,t:"dataset",ven:"Harvard Dataverse",
+   title:"Survey About the Spanish Monarchy",
+   au:"E. Hernández, M. Torre, A. De Moragas",
+   ab:"Dataset accompanying The Crown article."},
+  {y:2021,t:"dataset",ven:"Diposit Digital de Documents UAB",
+   title:"POLAT: Spanish Political Attitudes Panel Dataset (Waves 1-6)",
+   au:"E. Hernández, C. Galais, G. Rico, J. Muñoz, M. J. Hierro, R. Pannico, B. Barbet, D. Marinova, E. Anduiza",
+   ab:"First 6 waves of the POLAT panel."}
+];
+
+function render(filter){
+  const wrap = document.getElementById('pubs');
+  wrap.innerHTML = '';
+  const list = PUBS.filter(p => filter==='all' || p.t===filter).sort((a,b)=> b.y - a.y);
+  let lastY = null;
+  list.forEach((p,i)=>{
+    if (p.y !== lastY){
+      const yh = document.createElement('div');
+      yh.className = 'year'; yh.textContent = p.y;
+      wrap.appendChild(yh); lastY = p.y;
+    }
+    const linkHtml = p.url ? `<a href="${p.url}" target="_blank">link ↗</a>` :
+                     (p.doi ? `<a href="https://doi.org/${p.doi}" target="_blank">doi ↗</a>` : '');
+    const div = document.createElement('div'); div.className = 'pub';
+    div.innerHTML = `
+      <div class="pub-title">${p.title}</div>
+      <div class="pub-authors">${p.au}</div>
+      <div class="pub-venue">${p.ven}</div>
+      <div class="pub-actions">
+        <button data-i="${i}">abstract</button>
+        ${linkHtml}
+      </div>
+      <div class="pub-abs" data-x="${i}">${p.ab}</div>`;
+    wrap.appendChild(div);
+  });
+  wrap.querySelectorAll('button[data-i]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const id = b.getAttribute('data-i');
+      const ex = wrap.querySelector(`[data-x="${id}"]`);
+      const open = ex.classList.toggle('open');
+      b.textContent = open ? 'hide abstract' : 'abstract';
+    });
+  });
+}
+document.querySelectorAll('#filters button').forEach(f=>{
+  f.addEventListener('click',()=>{
+    document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('active'));
+    f.classList.add('active'); render(f.dataset.f);
+  });
+});
+render('all');
+</script>
+</body>
+</html>
