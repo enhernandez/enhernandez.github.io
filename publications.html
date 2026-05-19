@@ -44,6 +44,8 @@
       margin:2rem 0 .5rem;letter-spacing:-.01em}
     .pub{padding:1rem 0;border-bottom:1px solid var(--line)}
     .pub-title{font-family:'Roboto Slab',Georgia,serif;font-size:1.05rem;font-weight:500;line-height:1.4}
+    .pub-title a{color:inherit;text-decoration:none}
+    .pub-title a:hover{text-decoration:underline;text-underline-offset:3px}
     .pub-authors{font-size:.92rem;margin-top:.25rem}
     .pub-venue{font-size:.88rem;color:var(--muted);font-style:italic;margin-top:.15rem}
     .pub-actions{margin-top:.45rem;font-size:.82rem}
@@ -271,19 +273,17 @@ function render(filter){
       yh.className = 'year'; yh.textContent = p.y;
       wrap.appendChild(yh); lastY = p.y;
     }
-    const linkHtml = p.url ? `<a href="${p.url}" target="_blank">link ↗</a>` :
-                     (p.doi ? `<a href="https://doi.org/${p.doi}" target="_blank">doi ↗</a>` : '');
+    const url = p.url ? p.url : (p.doi ? `https://doi.org/${p.doi}` : '');
+    const titleHtml = url ? `<a href="${url}" target="_blank">${p.title}</a>` : p.title;
     const absBtn = p.ab ? `<button data-i="${i}">abstract</button>` : '';
     const absDiv = p.ab ? `<div class="pub-abs" data-x="${i}">${p.ab}</div>` : '';
+    const actions = absBtn ? `<div class="pub-actions">${absBtn}</div>` : '';
     const div = document.createElement('div'); div.className = 'pub';
     div.innerHTML = `
-      <div class="pub-title">${p.title}</div>
+      <div class="pub-title">${titleHtml}</div>
       <div class="pub-authors">${p.au}</div>
       <div class="pub-venue">${p.ven}</div>
-      <div class="pub-actions">
-        ${absBtn}
-        ${linkHtml}
-      </div>
+      ${actions}
       ${absDiv}`;
     wrap.appendChild(div);
   });
