@@ -29,61 +29,45 @@ the sidebar (affiliation, nav links, social icons), update all five pages.
 
 Do not open a pull request unless the user explicitly asks for one.
 
-## CV update routine
+## Website update routine
 
-When the user provides new academic information (publication, talk, grant,
-award, etc.), run this routine. **Requires Claude Code CLI on the user's Mac**
-with the CV folder in scope (cv.tex is not reachable from the web sandbox).
+The user maintains their CV (`cv.tex` → `cv.pdf`) outside this repo. When
+they have an update they will either:
 
-CV source folder on the Mac:
-`/Users/enriquehernandez/Dropbox/UAB/Burocracia/Bio, CV, Fotos/CV_AUTO_CLAUDE/`
+- **Describe the new item** in chat (new publication, talk, grant, etc.), and
+  optionally
+- **Upload a new `cv.pdf`** when the CV has changed.
 
-Recommended invocation:
-```
-cd ~/path/to/enhernandez.github.io
-claude --add-dir "/Users/enriquehernandez/Dropbox/UAB/Burocracia/Bio, CV, Fotos/CV_AUTO_CLAUDE"
-```
+For each described item, decide where it belongs using the routing table
+below, update the relevant HTML files, show a summary of what changed, wait
+for confirmation, then publish.
 
-Then call `/update-cv <free-text description of the change>`.
-
-### Steps
-
-1. **Read the cv.tex** to understand its current structure and conventions
-   before editing (sections, ordering, citation style, indentation).
-2. **Update the .tex** in the appropriate section(s), preserving formatting.
-3. **Update the website** with items that are publicly relevant — see the
-   routing table below.
-4. **Show a summary** of all the changes (.tex edits + each web file touched)
-   and **wait for confirmation** before compiling and publishing.
-5. After confirmation:
-   1. Compile the CV: `cd` to the CV folder, run `latexmk -pdf cv.tex`
-      (fall back to `pdflatex cv.tex` twice + `bibtex` if needed). Fix
-      errors and re-run until the build succeeds.
-   2. Copy the new `cv.pdf` to the website repo root, overwriting the
-      existing one.
-   3. Commit on the current feature branch, fast-forward merge to `main`,
-      and push (per the publishing workflow above).
+When the user uploads a new `cv.pdf`, replace the existing one at the repo
+root and publish.
 
 ### Routing table
 
-What kind of item goes where:
+What kind of item goes where on the web:
 
-| Type                       | cv.tex | publications.html | index.html               | Other                  |
-|----------------------------|:------:|:-----------------:|--------------------------|------------------------|
-| Published article          | ✓      | ✓                 | Recent pubs (ask first)  |                        |
-| Forthcoming article        | ✓      | ✓                 | Recent pubs (ask first)  |                        |
-| Book chapter               | ✓      | ✓                 | Recent pubs (ask first)  |                        |
-| Working paper / WIP        | ✓      |                   | Work in progress         |                        |
-| Dataset release            | ✓      | ✓                 |                          |                        |
-| New grant (won)            | ✓      |                   | Current projects         | `projects.html`        |
-| Conference / invited talk  | ✓      |                   |                          |                        |
-| Award / honour             | ✓      |                   |                          |                        |
-| Editorial / reviewing      | ✓      |                   |                          |                        |
-| New teaching course        | ✓      |                   |                          | `teaching.html`        |
-| Media / outreach piece     | ✓      |                   |                          | `outreach.html`        |
-| New affiliation / title    | ✓      |                   | About lede               | sidebar (all 5 pages)  |
+| Type                       | publications.html | index.html               | Other                  |
+|----------------------------|:-----------------:|--------------------------|------------------------|
+| Published article          | ✓                 | Recent pubs (ask first)  |                        |
+| Forthcoming article        | ✓                 | Recent pubs (ask first)  |                        |
+| Book chapter               | ✓                 | Recent pubs (ask first)  |                        |
+| Working paper / WIP        |                   | Work in progress         |                        |
+| Dataset release            | ✓                 |                          |                        |
+| New grant (won)            |                   | Current projects         | `projects.html`        |
+| Conference / invited talk  | — (CV only)       |                          |                        |
+| Award / honour             | — (CV only)       |                          |                        |
+| Editorial / reviewing      | — (CV only)       |                          |                        |
+| New teaching course        |                   |                          | `teaching.html`        |
+| Media / outreach piece     |                   |                          | `outreach.html`        |
+| New affiliation / title    |                   | About lede               | sidebar (all 5 pages)  |
 
-For ambiguous cases, ask the user before editing.
+For items marked "CV only" the user will only mention them so you know what
+the new `cv.pdf` contains — do not add them to the website.
+
+For ambiguous cases, ask before editing.
 
 ### "Recent publications" on index.html
 
@@ -91,3 +75,8 @@ For ambiguous cases, ask the user before editing.
 candidate (article / chapter / forthcoming), **ask the user**: list the
 current 4 plus the candidate and let them choose which to drop (or whether
 to skip Recent and only add to `publications.html`).
+
+### Confirmation
+
+Before publishing, show a brief summary of what will change (files touched
+and a one-line per change) and wait for the user's "ok" or equivalent.
